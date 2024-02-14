@@ -16,9 +16,9 @@ export default async ({ req, res, log, error }) => {
   const promise = functions.list();
 
 promise.then(function (response) {
-    console.log(response);
+    log(response);
 }, function (error) {
-    console.log(error);
+    log(error);
 });
 
   // You can log messages to the console
