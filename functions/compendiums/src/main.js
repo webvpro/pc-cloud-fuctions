@@ -1,4 +1,4 @@
-import 'dotenv/config';
+
 import { databases } from './utils/awClient.js';
 
 // This is your Appwrite function
