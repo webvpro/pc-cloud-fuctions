@@ -12,7 +12,7 @@ export default async ({ req, res, log, error }) => {
     const dbList = await databases.list();
     log('this thing');
   } catch (e) {
-    error(e);
+    error('db error');
   }
 
   // You can log messages to the console
