@@ -1,5 +1,5 @@
 
-import { Client, Databases } from 'node-appwrite';
+import { Client, Databases, Storage } from 'node-appwrite';
 import 'dotenv/config';
 
 
@@ -15,6 +15,7 @@ export default async ({ req, res, log, error, context }) => {
     .setProject(process.env.APPWRITE_PROJECT_ID)
     .setKey(process.env.APPWRITE_KEY);
     const databases = new Databases(client);
+    const storage = new Storage(client);
 
   // You can log messages to the console
   log('Hello, Logsxxx!');
@@ -29,7 +30,7 @@ export default async ({ req, res, log, error, context }) => {
     // `res.send()` dispatches a string back to the client
     try {
      const dbList = await databases.list()
-      return res.json(JSON.stringify(dbList));
+      return res.json(dbList);
     } catch (e) {
       error("db-error" + JSON.stringify(e.message))
       return res.json({'error': e.message})
