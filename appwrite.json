@@ -4,7 +4,7 @@
     "functions": [
         {
             "$id": "pc-compendiums",
-            "name": "compodiums",
+            "name": "compendiums",
             "runtime": "node-18.0",
             "execute": [],
             "events": [],
