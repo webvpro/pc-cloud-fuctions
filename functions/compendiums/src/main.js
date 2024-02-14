@@ -9,10 +9,10 @@ export default async ({ req, res, log, error }) => {
   //
   
   try {
-    const dbList = await databases.list();
+    await databases.list();
     log('this thing');
   } catch (e) {
-    error('db error');
+    context.log(e);
   }
 
   // You can log messages to the console
