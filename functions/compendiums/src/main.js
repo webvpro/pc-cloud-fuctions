@@ -17,13 +17,8 @@ export default async ({ req, res, log, error, context }) => {
     const databases = new Databases(client);
 
   // You can log messages to the console
-  log('Hello, Logsxxx!' + process.env.APPWRITE_ENDPOINT);
-  try {
-    await databases.list()
-  } catch (e) {
-    error("db-error")
-    //return res.json({...e})
-  }
+  log('Hello, Logsxxx!');
+  
 
   // If something goes wrong, log an error
   //error('Hello, Errors!');
@@ -32,7 +27,18 @@ export default async ({ req, res, log, error, context }) => {
   if (req.method === 'GET') {
     // Send a response with the res object helpers
     // `res.send()` dispatches a string back to the client
-    return res.send('Hello, World!');
+    try {
+      await databases.list()
+      return res.json({
+        motto: 'Build like a team of hundreds_',
+        learn: 'https://appwrite.io/docs',
+        connect: 'https://appwrite.io/discord',
+        getInspired: 'https://builtwith.appwrite.io',
+      });
+    } catch (e) {
+      error("db-error")
+      return res.json({'error': e.message})
+    }
   }
 
   // `res.json()` is a handy helper for sending JSON
