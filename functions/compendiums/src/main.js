@@ -22,7 +22,7 @@ promise.then(function (response) {
 });
 
   // You can log messages to the console
-  log('Hello, Logs!');
+  log('Hello, Logs!', req);
 
   // If something goes wrong, log an error
   //error('Hello, Errors!');
