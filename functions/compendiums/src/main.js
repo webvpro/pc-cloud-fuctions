@@ -21,8 +21,8 @@ export default async ({ req, res, log, error, context }) => {
   try {
     await databases.list()
   } catch (e) {
-    error(e.message)
-    return res.json({error: e.message})
+    error("db-error" + e.message)
+    //return res.json({...e})
   }
 
   // If something goes wrong, log an error
