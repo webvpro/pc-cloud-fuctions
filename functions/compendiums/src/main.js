@@ -8,15 +8,9 @@ export default async ({ req, res, log, error, context }) => {
   // Why not try the Appwrite SDK?
   //
   
-  try {
-    await databases.list();
-    log('this thing');
-  } catch (e) {
-    context.log(e);
-  }
 
   // You can log messages to the console
-  log('Hello, Logsxxx!', process.env.APPWRITE_ENDPOINT);
+  log('Hello, Logsxxx!');
 
   // If something goes wrong, log an error
   //error('Hello, Errors!');
