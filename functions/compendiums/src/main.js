@@ -28,15 +28,10 @@ export default async ({ req, res, log, error, context }) => {
     // Send a response with the res object helpers
     // `res.send()` dispatches a string back to the client
     try {
-      await databases.list()
-      return res.json({
-        motto: 'Build like a team of hundreds_',
-        learn: 'https://appwrite.io/docs',
-        connect: 'https://appwrite.io/discord',
-        getInspired: 'https://builtwith.appwrite.io',
-      });
+     const dbList = await databases.list()
+      return res.json(JSON.stringify(dbList));
     } catch (e) {
-      error("db-error")
+      error("db-error" + JSON.stringify(e.message))
       return res.json({'error': e.message})
     }
   }
