@@ -4,7 +4,7 @@ import { databases } from './utils/awClient.js';
 // This is your Appwrite function
 // It's executed each time we get a request
 
-export default async ({ req, res, log, error }) => {
+export default async ({ req, res, log, error, context }) => {
   // Why not try the Appwrite SDK?
   //
   
