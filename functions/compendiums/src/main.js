@@ -12,10 +12,10 @@ export default async ({ req, res, log, error }) => {
     .setKey(process.env.APPWRITE_KEY);
 
   // You can log messages to the console
-  log('Hello, Logs!', client);
+  log('Hello, Logs!');
 
   // If something goes wrong, log an error
-  error('Hello, Errors!');
+  //error('Hello, Errors!');
 
   // The `req` object contains the request data
   if (req.method === 'GET') {
