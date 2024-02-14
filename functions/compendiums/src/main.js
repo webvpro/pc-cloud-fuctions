@@ -1,5 +1,8 @@
 
-import { databases } from './utils/awClient.js';
+import { Client, Databases } from 'node-appwrite';
+import 'dotenv/config';
+
+
 
 // This is your Appwrite function
 // It's executed each time we get a request
@@ -7,10 +10,19 @@ import { databases } from './utils/awClient.js';
 export default async ({ req, res, log, error, context }) => {
   // Why not try the Appwrite SDK?
   //
-  
+  const client = new Client()
+    .setEndpoint(process.env.APPWRITE_ENDPOINT)
+    .setProject(process.env.APPWRITE_PROJECT_ID)
+    .setKey(process.env.APPWRITE_KEY);
+    const databases = new Databases(client);
 
   // You can log messages to the console
   log('Hello, Logsxxx!');
+  try {
+    await databases.list()
+  } catch (e) {
+    error(e.message)
+  }
 
   // If something goes wrong, log an error
   //error('Hello, Errors!');
