@@ -1,6 +1,6 @@
 {
-    "projectId": "6451120f4c12bedaaf4a",
-    "projectName": "CSRD_Sheets",
+    "projectId": "65a74e2e2c1c96f03f87",
+    "projectName": "nuxt-auth",
     "functions": [
         {
             "$id": "pc-compendiums",
@@ -18,7 +18,7 @@
                 "node_modules",
                 ".npm"
             ],
-            "path": "functions/compodiums"
+            "path": "functions/compendiums"
         }
     ]
 }
