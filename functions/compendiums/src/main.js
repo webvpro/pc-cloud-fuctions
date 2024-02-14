@@ -10,7 +10,7 @@ export default async ({ req, res, log, error }) => {
   
   try {
     const dbList = await databases.list();
-    context.log(dbList);
+    log('this thing');
   } catch (e) {
     error(e);
   }
