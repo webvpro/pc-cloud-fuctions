@@ -17,7 +17,7 @@ export default async ({ req, res, log, error, context }) => {
     const databases = new Databases(client);
 
   // You can log messages to the console
-  log('Hello, Logsxxx!');
+  log('Hello, Logsxxx!' + process.env.APPWRITE_ENDPOINT);
   try {
     await databases.list()
   } catch (e) {
