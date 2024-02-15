@@ -21,13 +21,13 @@ export default async ({ req, res, log, error, context }) => {
     log(JSON.stringify(req.headers))
     const user = account.get()
   // The `req` object contains the request data
-  log()
+
   if (req.method === 'GET') {
     // Send a response with the res object helpers
     // `res.send()` dispatches a string back to the client
     try {
      const dbList = await databases.list()
-      log()
+     log(JSON.stringify(user))
       return res.json(dbList);
     } catch (e) {
       error("db-error" + JSON.stringify(e.message))
