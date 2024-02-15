@@ -19,7 +19,7 @@ export default async ({ req, res, log, error, context }) => {
     const users = new Users(client);
 
     
-    const user = users.get(req.headers['x-appwrite-user-id'])
+    const user = await users.get(req.headers['x-appwrite-user-id'])
     
     //console.log() 
   // The `req` object contains the request data
@@ -29,7 +29,7 @@ export default async ({ req, res, log, error, context }) => {
     try {
      const dbList = await databases.list()
       
-      return res.json(dbList);
+      return res.json(user);
     } catch (e) {
       error("db-error" + JSON.stringify(e.message))
       return res.json({'error': e.message})
