@@ -19,9 +19,7 @@ export default async ({ req, res, log, error, context }) => {
     const users = new Users(client);
 
     log(JSON.stringify(req.headers['x-appwrite-user-id']))
-    const user = await users.get(req.headers['x-appwrite-user-id'])
     
-   log(JSON.stringify(user)) 
   // The `req` object contains the request data
   if (req.method === 'GET') {
     // Send a response with the res object helpers
