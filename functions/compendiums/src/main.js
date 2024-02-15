@@ -19,8 +19,8 @@ export default async ({ req, res, log, error, context }) => {
     const users = new Users(client);
 
     
-    //const user = account.getSession()
-    log(JSON.stringify(req.headers['x-appwrite-user-id']))
+    const user = users.get(req.headers['x-appwrite-user-id'])
+    log(JSON.stringify(user))
     //console.log() 
   // The `req` object contains the request data
   if (req.method === 'GET') {
@@ -28,6 +28,7 @@ export default async ({ req, res, log, error, context }) => {
     // `res.send()` dispatches a string back to the client
     try {
      const dbList = await databases.list()
+      
       return res.json(dbList);
     } catch (e) {
       error("db-error" + JSON.stringify(e.message))
