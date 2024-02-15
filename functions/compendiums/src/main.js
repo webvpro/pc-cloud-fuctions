@@ -21,7 +21,7 @@ export default async ({ req, res, log, error, context }) => {
     
     const user = await users.get(req.headers['x-appwrite-user-id'])
     
-    //console.log() 
+   log(JSON.stringify(user)) 
   // The `req` object contains the request data
   if (req.method === 'GET') {
     // Send a response with the res object helpers
@@ -29,7 +29,7 @@ export default async ({ req, res, log, error, context }) => {
     try {
      const dbList = await databases.list()
       
-      return res.json(user);
+      return res.json(dbList);
     } catch (e) {
       error("db-error" + JSON.stringify(e.message))
       return res.json({'error': e.message})
