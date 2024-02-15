@@ -7,7 +7,7 @@ import 'dotenv/config';
 // This is your Appwrite function
 // It's executed each time we get a request
 
-export default async ({ req, res, log, error, context }) => {
+export default async ({ req, res, log, error }) => {
   // Why not try the Appwrite SDK?
   //
   const client = new Client().setEndpoint(process.env.APPWRITE_ENDPOINT).setProject(process.env.APPWRITE_PROJECT_ID).setKey(process.env.APPWRITE_KEY) 
@@ -17,9 +17,9 @@ export default async ({ req, res, log, error, context }) => {
     const users = new Users(client);
     try {
       const user = await users.get(req.headers['x-appwrite-user-id'])
-      context.log('Have User')
+      log('Have User')
     } catch (e) {
-      context.error("user-error" + JSON.stringify(e.message))
+      error("user-error" + JSON.stringify(e.message))
       return res.json(e.message);
     }
    
