@@ -22,7 +22,7 @@
         },
         {
             "$id": "65cea1a226bc762d4c1f",
-            "name": "My Awesome Function",
+            "name": "createCompendium",
             "runtime": "node-18.0",
             "execute": [],
             "events": [],
@@ -36,7 +36,7 @@
                 "node_modules",
                 ".npm"
             ],
-            "path": "functions/My Awesome Function"
+            "path": "functions/createCompendium"
         }
     ]
 }
