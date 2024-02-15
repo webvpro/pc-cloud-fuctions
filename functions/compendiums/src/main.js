@@ -19,7 +19,8 @@ export default async ({ req, res, log, error, context }) => {
       const user = users.get(req.headers['x-appwrite-user-id'])
       return res.json(user);
     } catch (e) {
-      error(JSON.stringify(e))
+      error("user-error" + JSON.stringify(e.message))
+      return res.json(e.message);
     }
    
   
@@ -33,7 +34,7 @@ export default async ({ req, res, log, error, context }) => {
     
       return res.json(dbList);
     } catch (e) {
-      error("db-error" + JSON.stringify(e.message))
+      
       return res.json({'error': e.message})
     }
   }
