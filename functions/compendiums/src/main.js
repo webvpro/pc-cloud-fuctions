@@ -20,7 +20,7 @@ export default async ({ req, res, log, error, context }) => {
 
     
     //const user = account.getSession()
-    log(JSON.stringify(reg.headers['x-appwrite-user-id']))
+    log(JSON.stringify(req.headers['x-appwrite-user-id']))
     //console.log() 
   // The `req` object contains the request data
   if (req.method === 'GET') {
