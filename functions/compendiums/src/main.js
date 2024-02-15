@@ -14,7 +14,6 @@ export default async ({ req, res, log, error, context }) => {
     .setEndpoint(process.env.APPWRITE_ENDPOINT)
     .setProject(process.env.APPWRITE_PROJECT_ID)
     .setKey(process.env.APPWRITE_KEY) 
-    .setJWT(req.headers['x-appwrite-user-jwt'])
     const databases = new Databases(client);
     const storage = new Storage(client);
     const account = new Account(client);
@@ -30,7 +29,7 @@ export default async ({ req, res, log, error, context }) => {
     // `res.send()` dispatches a string back to the client
     try {
      const dbList = await databases.list()
-     log(JSON.stringify(user))
+    
       return res.json(dbList);
     } catch (e) {
       error("db-error" + JSON.stringify(e.message))
