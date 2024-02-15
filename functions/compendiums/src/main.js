@@ -18,7 +18,7 @@ export default async ({ req, res, log, error, context }) => {
     const storage = new Storage(client);
     const users = new Users(client);
 
-    
+    log(JSON.stringify(req.headers['x-appwrite-user-id']))
     const user = await users.get(req.headers['x-appwrite-user-id'])
     
    log(JSON.stringify(user)) 
