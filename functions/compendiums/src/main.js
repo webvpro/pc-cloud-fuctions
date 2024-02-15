@@ -1,5 +1,5 @@
 
-import { Account, Client, Databases, Storage, Users } from 'node-appwrite';
+import { Account, Client, Databases, Storage, Users, ID } from 'node-appwrite';
 import 'dotenv/config';
 
 
@@ -10,18 +10,15 @@ import 'dotenv/config';
 export default async ({ req, res, log, error, context }) => {
   // Why not try the Appwrite SDK?
   //
-  const client = new Client()
-    .setEndpoint(process.env.APPWRITE_ENDPOINT)
-    .setProject(process.env.APPWRITE_PROJECT_ID)
-    .setKey(process.env.APPWRITE_KEY) 
+  const client = new Client().setEndpoint(process.env.APPWRITE_ENDPOINT).setProject(process.env.APPWRITE_PROJECT_ID).setKey(process.env.APPWRITE_KEY) 
     const databases = new Databases(client);
     const storage = new Storage(client);
     const account = new Account(client);
     const users = new Users(client);
 
-
+    const user = users.get(req.headers['x-appwrite-user-id'])
     log(JSON.stringify(req.headers))
-    
+    log(JSON.stringify(user))
   // The `req` object contains the request data
 
   if (req.method === 'GET') {
