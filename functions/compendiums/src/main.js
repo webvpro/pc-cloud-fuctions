@@ -15,10 +15,14 @@ export default async ({ req, res, log, error, context }) => {
     const storage = new Storage(client);
     const account = new Account(client);
     const users = new Users(client);
-
-    const user = users.get(req.headers['x-appwrite-user-id'])
-    log(JSON.stringify(req.headers))
-    log(JSON.stringify(user))
+    try {
+      const user = users.get(req.headers['x-appwrite-user-id'])
+      return res.json(user);
+    } catch (e) {
+      error(JSON.stringify(e))
+    }
+   
+  
   // The `req` object contains the request data
 
   if (req.method === 'GET') {
