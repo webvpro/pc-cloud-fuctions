@@ -17,9 +17,9 @@ export default async ({ req, res, log, error, context }) => {
     const users = new Users(client);
     try {
       const user = await users.get(req.headers['x-appwrite-user-id'])
-      log('Have User')
+      context.log('Have User')
     } catch (e) {
-      error("user-error" + JSON.stringify(e.message))
+      context.error("user-error" + JSON.stringify(e.message))
       return res.json(e.message);
     }
    
