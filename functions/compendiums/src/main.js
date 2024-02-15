@@ -13,7 +13,6 @@ export default async ({ req, res, log, error, context }) => {
   const client = new Client()
     .setEndpoint(process.env.APPWRITE_ENDPOINT)
     .setProject(process.env.APPWRITE_PROJECT_ID)
-    .setKey(process.env.APPWRITE_KEY) 
     const databases = new Databases(client);
     const storage = new Storage(client);
     const account = new Account(client);
