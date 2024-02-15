@@ -13,13 +13,16 @@ export default async ({ req, res, log, error, context }) => {
   const client = new Client()
     .setEndpoint(process.env.APPWRITE_ENDPOINT)
     .setProject(process.env.APPWRITE_PROJECT_ID)
-    .setKey(process.env.APPWRITE_KEY);
+    .setKey(process.env.APPWRITE_KEY) 
+    .setJWT(req.headers['x-appwrite-user-jwt'])
     const databases = new Databases(client);
     const storage = new Storage(client);
     const account = new Account(client);
+    const users = new Users(client);
+
 
     log(JSON.stringify(req.headers))
-    const user = account.get()
+    
   // The `req` object contains the request data
 
   if (req.method === 'GET') {
