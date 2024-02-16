@@ -1,5 +1,5 @@
 
-import { Account, Client, Databases, Storage, Users, ID } from 'node-appwrite';
+import { Account, Client, Databases, Storage, Users, Query, ID } from 'node-appwrite';
 import 'dotenv/config';
 
 
@@ -30,9 +30,9 @@ export default async ({ req, res, log, error }) => {
     // Send a response with the res object helpers
     // `res.send()` dispatches a string back to the client
     try {
-     const dbList = await databases.list()
+     const userCompendiums = await databases.listDocuments('user_compendiums', 'compendiums');
     
-      return res.json(dbList);
+      return res.json(userCompendiums.responseBody);
     } catch (e) {
       
       return res.json({'error': e.message})
